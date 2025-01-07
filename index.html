@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DJDesigners - Home</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(45deg, #FFF, #ddd3ed);
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: linear-gradient(45deg, #FF6F61, #FF3D8E, #9C1F6D, #1E0D6D);
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        header nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(45deg, #FF6F61, #FF3D8E, #9C1F6D, #1E0D6D);
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .cta-btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #FF3D8E;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+        .cta-btn:hover {
+            background-color: #FF6F61;
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .what-we-do {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 50px 5px;
+            justify-items: center;
+            margin-bottom: 20px;
+            margin-top: 0px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 99vw;
+        }
+
+        .plans{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            margin-bottom: 20px;
+        }
+
+        .plan-card,
+        .service-card {
+            background-color: #F5F5F5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .plan-card:hover,
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .plan-card h3,
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #9C1F6D;
+        }
+
+        .plan-card p,
+        .service-card p {
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        #templates {
+            background: #F9F9F9;
+            padding: 60px 20px;
+        }
+
+        .template-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .template-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 85%;
+            text-align: center;
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .template-card:hover {
+            transform: scale(1.05);
+        }
+
+        .template-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #1E0D6D;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        #what-we-do {
+            text-align: center;
+        }
+
+        #plans {
+            text-align: center;
+        }
+
+        #templates {
+            text-align: center;
+        }
+
+        hr {
+            width: 75%;
+        }
+
+        .plans h4 {
+            font-size: 1.2rem;
+            color: #ff00c8;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        #modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        #close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        #close-btn:hover,
+        #close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        input,
+        select,
+        textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #FF3D8E;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #FF6F61;
+        }
+
+        @media (max-width: 768px) {
+
+            .plans,
+            .what-we-do,
+            .template-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-card,
+            .plan-card {
+                max-width: 300px;
+            }
+
+            .template-card {
+                max-width: 250px;
+            }
+        }
+
+        #templates h2 {
+            margin-top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>DJDesigners</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#what-we-do">What We Do</a>
+            <a href="#plans">Plans</a>
+            <a href="#templates">Templates</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="body">
+        <section class="hero">
+            <h2>Create Your Future Online with Stunning Websites</h2>
+            <p>Custom Designs. Professional Hosting. Google Search Optimization. - We're The Experts!</p>
+            <button class="cta-btn">Get Started</button>
+        </section>
+
+        <section id="what-we-do">
+            <h2>What We Do</h2>
+            <div class="what-we-do">
+                <div class="service-card">
+                    <h3>Custom Website Design</h3>
+                    <p>We design websites tailored to your business, giving you a unique online presence.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Professional Hosting</h3>
+                    <p>We provide reliable hosting, ensuring your website is always up and running.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Domain Services</h3>
+                    <p>We buy and manage your domain so you don’t have to worry about the confusing details.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Google Search Optimization</h3>
+                    <p>We'll optimize your site for Google, helping you reach more customers.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Ongoing Support</h3>
+                    <p>We provide ongoing support to ensure your website runs smoothly.</p>
+                </div>
+                <div class="service-card">
+                    <h3>We Make It Easy</h3>
+                    <p>We handle everything from design to hosting, making the process easy for you.</p>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="plans">
+            <h2>Our Plans</h2>
+            <p>*All plans include hosting and basic Google search optimization.</p>
+            <p>*All plans allow for an importation of your existing domain OR we can help you find a new one.</p>
+            <div class="plans">
+                <div class="plan-card">
+                    <h3>Premade Template</h3>
+                    <h4>Starting at $100 ($75/month)</h4>
+                    <p>Choose from one of our premade templates and we will customize it to your liking.</p>
+                    <button class="cta-btn">Get Started</button>
+                </div>
+                <div class="plan-card">
+                    <h3>Design Plan</h3>
+                    <h4>Starting at $150 ($125/month)</h4>
+                    <p>Custom design based on your requirements, with premium hosting and support.</p>
+                    <button class="cta-btn">Get Started</button>
+                </div>
+                <div class="plan-card">
+                    <h3>Complete Plan</h3>
+                    <h4>Starting at $200 ($175/month)</h4>
+                    <p>Custom design based on your requirements, with premium hosting, priority support, and more.</p>
+                    <button class="cta-btn">Get Started</button>
+                </div>
+                <div class="plan-card">
+                    <h3>Custom Plan</h3>
+                    <h4>Contact us for pricing</h4>
+                    <p>For more complex and unique requirements, we offer custom solutions.</p>
+                    <button class="cta-btn">Get Started</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="templates">
+            <h2>Explore Some Of Our Templates</h2>
+            <div class="template-section">
+                <div class="template-cards">
+                    <div class="template-card">
+                        <iframe width="100%" height="500" src="./template1.html" frameborder="0" marginheight="0"
+                            marginwidth="0">Loading…</iframe>
+                        <p>Template 1</p>
+                    </div>
+                    <div class="template-card">
+                        <iframe width="100%" height="500" src="./template2.html" frameborder="0" marginheight="0"
+                            marginwidth="0">Loading…</iframe>
+                        <p>Template 2</p>
+                    </div>
+                    <div class="template-card">
+                        <iframe width="100%" height="500" src="https://terra.photos" frameborder="0" marginheight="0"
+                            marginwidth="0">Loading…</iframe>
+                        <p>Template 3</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="modal">
+        <div id="modal-content">
+            <span id="close-btn">&times;</span>
+            <iframe width="100%" height="500"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdYJ295RYlNXo7m3puV_pAW-pJMHEHWuFIa2ughdfZLgOnjZg/viewform?embedded=true"
+                frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DJDesigners. All rights reserved.</p>
+        <a href="#">Contact Us</a>
+    </footer>
+
+
+    <script>
+        const buttons = document.querySelectorAll('.cta-btn');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                document.getElementById('modal').style.display = 'block';
+            });
+        });
+
+        document.getElementById('close-btn').addEventListener('click', () => {
+            document.getElementById('modal').style.display = 'none';
+        });
+
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('modal')) {
+                document.getElementById('modal').style.display = 'none';
+            }
+        };
+
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.querySelectorAll('iframe').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                window.open(this.getAttribute('src'), '_blank');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<style>
+      :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #f9f9f9;
+            --accent-color: #FF5722;
+            --text-color: #212121;
+            --background-color: #cecece;
+            --font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('../images/background.JPG') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #E64A19;
+        }
+
+</style>
+<section class="hero">
+    <h2>Welcome to Your Business</h2>
+    <p>Delivering excellence and innovation to your doorstep.</p>
+    <button class="cta-button">Get Started</button>
+</section>

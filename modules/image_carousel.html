@@ -1,0 +1,165 @@
+<style>
+    :root {
+        --primary-color: #E91E63;
+        --secondary-color: #f9f9f9;
+        --accent-color: #FF4081;
+        --text-color: #212121;
+        --background-color: #cecece;
+        --font-family: 'Roboto', sans-serif;
+        --hover-color: #C2185B;
+    }
+
+    body {
+        margin: 0;
+        font-family: var(--font-family);
+        color: var(--text-color);
+        background-color: var(--secondary-color);
+    }
+
+    .carousel-container {
+        max-width: 80%;
+        margin: 20px auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-slide {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .carousel-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+    }
+
+    .carousel-button {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: 2px solid var(--primary-color);
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: background-color 0.3s, border-color 0.3s;
+        opacity: 0.8;
+    }
+
+    .carousel-button:hover {
+        background-color: var(--primary-color);
+        border-color: var(--hover-color);
+        opacity: 1;
+    }
+
+    .carousel-indicators {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .carousel-indicator {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 4px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .carousel-indicator.active {
+        background-color: var(--primary-color);
+    }
+
+    .carousel-indicator:hover {
+        background-color: var(--hover-color);
+    }
+
+    .carousel-indicator.active:hover {
+        background-color: var(--primary-color);
+    }
+</style>
+
+<section class="carousel-container">
+    <div class="carousel-slide">
+        <div class="carousel-item">
+            <img src="../images/image1.png" alt="Image 1">
+        </div>
+        <div class="carousel-item">
+            <img src="../images/image2.png" alt="Image 2">
+        </div>
+        <div class="carousel-item">
+            <img src="../images/image3.png" alt="Image 3">
+        </div>
+    </div>
+    <div class="carousel-controls">
+        <button class="carousel-button prev">&#8592;</button>
+        <button class="carousel-button next">&#8594;</button>
+    </div>
+    <div class="carousel-indicators">
+        <span class="carousel-indicator active"></span>
+        <span class="carousel-indicator"></span>
+        <span class="carousel-indicator"></span>
+    </div>
+</section>
+
+<script>
+    const slide = document.querySelector('.carousel-slide');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
+
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateIndicators();
+    }
+
+    function updateIndicators() {
+        indicatorsContainer.innerHTML = '';
+        items.forEach((_, index) => {
+            const indicator = document.createElement('span');
+            indicator.classList.add('carousel-indicator');
+            if (index === currentIndex) {
+                indicator.classList.add('active');
+            }
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+            indicatorsContainer.appendChild(indicator);
+        });
+    }
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+        updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+    });
+
+    updateIndicators();
+    updateCarousel();
+</script>
