@@ -279,54 +279,9 @@
             background-color: #FF6F61;
         }
 
-        iframe {
-            width: 100%;
-            height: 30vw;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         .template-card {
             border: #1E0D6D solid 2px;
             margin-bottom: 10px;
-        }
-
-        @media (max-width: 1200px) {
-            iframe {
-                width: 100%;
-                height: 70vw;
-                margin-left: auto;
-                margin-right: auto;
-                padding: 0px;
-            }
-
-            .plans,
-            .what-we-do {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .what-we-do {
-                text-align: center;
-            }
-
-            .plans {
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-
-
-        @media (max-width: 1200px) {
-            .what-we-do,
-            .plans {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .service-card, .plan-card {
-                max-width: 30vw;
-            }
-
         }
 
         #templates h2 {
@@ -343,6 +298,57 @@
         nav {
             display: grid;
             grid-template-columns: 1fr;
+            text-decoration: underline;
+        }
+
+        .preview {
+            object-fit: cover;
+            width: 40vw;
+        }
+
+        .template-card {
+            width: 40vw;
+        }
+
+        .template-cards {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1200px) {
+
+            .plans,
+            .what-we-do {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .what-we-do {
+                text-align: center;
+            }
+
+            .plans {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .what-we-do,
+            .plans {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-card,
+            .plan-card {
+                max-width: 30vw;
+            }
+
+            .template-card {
+                width: 80vw;
+            }
+
         }
     </style>
 </head>
@@ -434,18 +440,12 @@
             <div class="template-section">
                 <div class="template-cards">
                     <div class="template-card">
-                        <iframe src="./templates/template1.html" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                        <img src="./previews/1.PNG" alt="Template 1" class="preview">
                         <p>Template 1</p>
                     </div>
                     <div class="template-card">
-                        <iframe src="./templates/template2.html" frameborder="0" marginheight="0"
-                            marginwidth="0">Loading…</iframe>
+                        <img src="./previews/2.PNG" alt="Template 2" class="preview">
                         <p>Template 2</p>
-                    </div>
-                    <div class="template-card">
-                        <iframe src="https://terra.photos" frameborder="0" marginheight="0"
-                            marginwidth="0">Loading…</iframe>
-                        <p>Template 3</p>
                     </div>
                 </div>
             </div>
