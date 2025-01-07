@@ -88,7 +88,7 @@
             max-width: 99vw;
         }
 
-        .plans{
+        .plans {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
@@ -254,11 +254,28 @@
             background-color: #FF6F61;
         }
 
-        @media (max-width: 768px) {
+        iframe {
+            width: 100%;
+            height: 30vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .template-card {
+            border: #1E0D6D solid 2px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 1200px) {
+            iframe {
+                width: 100%;
+                height: 60vw;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
             .plans,
-            .what-we-do,
-            .template-cards {
+            .what-we-do {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -267,13 +284,22 @@
                 max-width: 300px;
             }
 
-            .template-card {
-                max-width: 250px;
+            .what-we-do {
+                width: 75%;
+                text-align: center;
+            }
+
+            .plans {
+                width: 75%;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
         #templates h2 {
             margin-top: 0px;
+            margin-bottom: 40px;
         }
     </style>
 </head>
@@ -365,17 +391,17 @@
             <div class="template-section">
                 <div class="template-cards">
                     <div class="template-card">
-                        <iframe width="100%" height="500" src="./template1.html" frameborder="0" marginheight="0"
+                        <iframe src="./template1.html" frameborder="0" marginheight="0"
                             marginwidth="0">Loading…</iframe>
                         <p>Template 1</p>
                     </div>
                     <div class="template-card">
-                        <iframe width="100%" height="500" src="./template2.html" frameborder="0" marginheight="0"
+                        <iframe src="./template2.html" frameborder="0" marginheight="0"
                             marginwidth="0">Loading…</iframe>
                         <p>Template 2</p>
                     </div>
                     <div class="template-card">
-                        <iframe width="100%" height="500" src="https://terra.photos" frameborder="0" marginheight="0"
+                        <iframe src="https://terra.photos" frameborder="0" marginheight="0"
                             marginwidth="0">Loading…</iframe>
                         <p>Template 3</p>
                     </div>
