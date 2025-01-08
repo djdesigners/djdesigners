@@ -55,6 +55,7 @@
             margin-left: 20px;
             text-decoration: none;
             font-weight: 600;
+            margin-bottom: 10px;
         }
 
         .hero {
@@ -107,15 +108,6 @@
             padding: 0px 20px;
         }
 
-        .plans {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            justify-items: center;
-            margin-bottom: 20px;
-        }
-
-        .plan-card,
         .service-card {
             background-color: #F5F5F5;
             padding: 20px;
@@ -126,25 +118,18 @@
             transition: transform 0.3s ease;
         }
 
-        .plan-card {
-            max-width: 800px;
-        }
-
         .service-card {
             max-width: 25vw;
         }
 
-        .plan-card:hover,
         .service-card:hover {
             transform: scale(1.05);
         }
 
-        .plan-card h3,
         .service-card h3 {
             color: #9C1F6D;
         }
 
-        .plan-card p,
         .service-card p {
             font-size: 1rem;
             margin-top: 10px;
@@ -174,6 +159,7 @@
 
         .template-card:hover {
             transform: scale(1.05);
+            cursor: pointer;
         }
 
         .template-card img {
@@ -198,10 +184,6 @@
             text-align: center;
         }
 
-        #plans {
-            text-align: center;
-        }
-
         #templates {
             text-align: center;
         }
@@ -210,9 +192,13 @@
             width: 75%;
         }
 
-        .plans h4 {
-            font-size: 1.2rem;
-            color: #ff00c8;
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
         }
 
         #modal {
@@ -290,15 +276,14 @@
         }
 
         #templates,
-        #plans,
         #what-we-do {
             text-align: center;
         }
 
         nav {
-            display: grid;
-            grid-template-columns: 1fr;
-            text-decoration: underline;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .preview {
@@ -319,8 +304,6 @@
         }
 
         @media (max-width: 1200px) {
-
-            .plans,
             .what-we-do {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -329,19 +312,11 @@
                 text-align: center;
             }
 
-            .plans {
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .what-we-do,
-            .plans {
+            .what-we-do {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .service-card,
-            .plan-card {
+            .service-card {
                 max-width: 30vw;
             }
 
@@ -349,6 +324,82 @@
                 width: 80vw;
             }
 
+            nav {
+                display: grid;
+            }
+        }
+    </style>
+    <style>
+        #plans {
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        #plans h2 {
+            margin: 0;
+            padding: 20px 0px;
+            font-size: 2.5rem;
+        }
+
+        @media (max-width: 1200px) {
+            .plans {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .plan {
+                width: 80%;
+            }
+        }
+
+        .plans {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            background: #f4f4f4;
+        }
+
+        .plan {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .plan h3 {
+            margin: 15px 0;
+            font-size: 1.8rem;
+            color: #6a11cb;
+        }
+
+        .plan p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .plan .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2575fc;
+            margin-bottom: 20px;
+        }
+
+        .plan button {
+            background: #2575fc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .plan button:hover {
+            background: #1b5cc7;
         }
     </style>
 </head>
@@ -408,25 +459,25 @@
             <p>*All plans include hosting and basic Google search optimization.</p>
             <p>*All plans allow for an importation of your existing domain OR we can help you find a new one.</p>
             <div class="plans">
-                <div class="plan-card">
+                <div class="plan">
                     <h3>Premade Template</h3>
                     <h4>Starting at $100 ($75/month)</h4>
                     <p>Choose from one of our premade templates and we will customize it to your liking.</p>
                     <button class="cta-btn">Get Started</button>
                 </div>
-                <div class="plan-card">
+                <div class="plan">
                     <h3>Design Plan</h3>
                     <h4>Starting at $150 ($125/month)</h4>
                     <p>Custom design based on your requirements, with premium hosting and support.</p>
                     <button class="cta-btn">Get Started</button>
                 </div>
-                <div class="plan-card">
+                <div class="plan">
                     <h3>Complete Plan</h3>
                     <h4>Starting at $200 ($175/month)</h4>
                     <p>Custom design based on your requirements, with premium hosting, priority support, and more.</p>
                     <button class="cta-btn">Get Started</button>
                 </div>
-                <div class="plan-card">
+                <div class="plan">
                     <h3>Custom Plan</h3>
                     <h4>Contact us for pricing</h4>
                     <p>For more complex and unique requirements, we offer custom solutions.</p>
@@ -496,9 +547,9 @@
             });
         });
 
-        document.querySelectorAll('iframe').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                window.open(this.getAttribute('src'), '_blank');
+        document.querySelectorAll('.template-card').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                window.location.href = `/templates/template${index + 1}.html`;
             });
         });
     </script>
