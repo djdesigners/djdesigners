@@ -131,7 +131,7 @@
             height: 100%;
         }
 
-        .product-item:hover img {
+        .product-item:hover img, .product-item:focus img {
             transform: scale(1.1);
         }
 
@@ -152,7 +152,7 @@
             border-radius: 10px;
         }
 
-        .product-item:hover .product-overlay {
+        .product-item:hover .product-overlay, .product-item:focus .product-overlay {
             opacity: 1;
         }
 
@@ -187,21 +187,19 @@
         <h1>Business Name</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <h2>Welcome to Your Business</h2>
         <p>Delivering excellence and innovation to your doorstep.</p>
         <button class="cta-button">Get Started</button>
     </section>
 
-    <section class="products">
+    <section class="products" id="products">
         <h2>Our Products</h2>
         <p>Explore our range of products designed to meet your needs.</p>
         <div class="product-grid">
@@ -251,7 +249,7 @@
             });
         });
     </script>
-    
+
 </body>
 
 </html>

@@ -1,0 +1,94 @@
+<style>
+    body {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        background: #f4f4f4;
+        color: #333;
+        overflow-x: hidden;
+    }
+    
+    @media (max-width: 1200px) {
+
+        .services,
+        .plans {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service,
+        .plan {
+            width: 80%;
+        }
+    }
+
+    .plans {
+        display: flex;
+        justify-content: center;
+        padding: 40px 20px;
+        background: #f4f4f4;
+    }
+
+    .plan {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 15px;
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+    }
+
+    .plan h3 {
+        margin: 15px 0;
+        font-size: 1.8rem;
+        color: #6a11cb;
+    }
+
+    .plan p {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .plan .price {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #2575fc;
+        margin-bottom: 20px;
+    }
+
+    .plan button {
+        background: #2575fc;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .plan button:hover {
+        background: #1b5cc7;
+    }
+</style>
+
+<section id="plans" class="plans">
+    <div class="plan">
+        <h3>Starter Plan</h3>
+        <p>Perfect for small businesses or personal projects.</p>
+        <div class="price">$500</div>
+        <button>Get Started</button>
+    </div>
+    <div class="plan">
+        <h3>Business Plan</h3>
+        <p>Designed for growing businesses that need advanced features.</p>
+        <div class="price">$1000</div>
+        <button>Get Started</button>
+    </div>
+    <div class="plan">
+        <h3>Premium Plan</h3>
+        <p>For businesses looking for a fully customized solution with all the bells and whistles.</p>
+        <div class="price">$2000</div>
+        <button>Get Started</button>
+    </div>
+</section>
